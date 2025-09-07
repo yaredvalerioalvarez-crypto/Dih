@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -12,75 +13,170 @@ body {
   line-height: 1.6;
 }
 
-header {
+/* Header BEM */
+.header {
   background-color: #742F30;
   color: white;
   padding: 20px;
   text-align: center;
+  position: relative;
 }
-
-header h1 {
+.header::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 6px;
+  background: linear-gradient(90deg, #742F30, #4766A9);
+}
+.header__title {
   font-size: 2em;
   margin-bottom: 10px;
+  position: relative;
 }
-
-nav {
+.header__title::after {
+  content: "🐾";
+  margin-left: 8px;
+  font-size: 1em;
+  vertical-align: middle;
+  opacity: 0.6;
+}
+.header__logo {
+  margin-bottom: 10px;
+}
+.header__nav {
   margin-top: 10px;
 }
-
-nav a {
+.header__link {
   color: white;
   text-decoration: none;
   margin: 0 15px;
   font-weight: bold;
+  position: relative;
+  transition: color 0.2s;
 }
-
-nav a:hover {
+.header__link:hover,
+.header__link:focus {
   text-decoration: underline;
+  color: #ffd700;
+}
+.header__link:active {
+  color: #ff9800;
+}
+.header__link--active::after {
+  content: " (actual)";
+  font-size: 0.8em;
+  color: #ffd700;
 }
 
-main {
+/* Main BEM */
+.main {
   padding: 30px;
   text-align: center;
 }
 
-.container {
+/* Gallery BEM */
+.gallery {
   display: flex;
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+  margin-bottom: 30px;
 }
-.container img {
+.gallery__image {
   width: 250px;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  position: relative;
+}
+.gallery__image:hover,
+.gallery__image:focus {
+  transform: scale(1.05) rotate(-2deg);
+  box-shadow: 0 8px 20px rgba(71,102,169,0.25);
+  outline: 3px solid #4766A9;
+}
+.gallery__image:active {
+  filter: brightness(0.95);
+}
+.gallery__image::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 8px; right: 8px;
+  width: 24px; height: 24px;
+  background: url('paw-icon.png') no-repeat center center / contain;
+  opacity: 0.2;
+  pointer-events: none;
+}
+.gallery__extra {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.gallery__image:first-child {
+  border: 3px solid #742F30;
+}
+.gallery__image:last-child {
+  border: 3px dashed #4766A9;
 }
 
-.container img:hover {
-  transform: scale(1.05);
+/* Footer info BEM */
+.footer-info {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+.footer-info__text {
+  font-size: 1.1em;
+}
+.footer-info__nav a {
+  color: #4766A9;
+  margin: 0 10px;
+  text-decoration: none;
+  position: relative;
+}
+.footer-info__nav a:hover,
+.footer-info__nav a:focus {
+  color: #742F30;
+}
+.footer-info__nav a::before {
+  content: "•";
+  color: #742F30;
+  margin-right: 5px;
 }
 
-footer {
+/* Footer BEM */
+.footer {
   background-color: #4766A9;
-  height: auto;
   color: white;
   padding: 15px;
   text-align: center;
   margin-top: 40px;
+  position: relative;
 }
-
-.footer nav a {
-  color: #ddd;
-  margin: 0 10px;
-  text-decoration: none;
+.footer::after {
+  content: "";
+  display: block;
+  height: 5px;
+  width: 60%;
+  background: #fff4;
+  margin: 18px auto 0 auto;
+  border-radius: 3px;
 }
-
-.footer nav a:hover {
-  color: #fff;
-}
-footer p {
+.footer__text {
   margin-top: 10px;
-  font-size: 35px;
+  font-size: 1.4em;
+  position: relative;
+}
+.footer__text::first-letter {
+  font-size: 1.8em;
+  color: #ffd700;
+  font-weight: bold;
+}
+.footer__text:hover {
+  color: #ffd700;
+  cursor: pointer;
 }
