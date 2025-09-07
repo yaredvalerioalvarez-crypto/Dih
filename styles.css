@@ -122,7 +122,12 @@ body {
 .gallery__image:last-child {
   border: 3px dashed #4766A9;
 }
-
+.gallery__image--portrait {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
 /* Footer info BEM */
 .footer-info {
   display: flex;
@@ -182,4 +187,5 @@ body {
   color: #ffd700;
   cursor: pointer;
 }
+
 
