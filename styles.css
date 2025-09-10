@@ -92,6 +92,7 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s;
   position: relative;
   object-fit: cover;
+  }
 .gallery__image:hover,
 .gallery__image:focus {
   transform: scale(1.05) rotate(-2deg);
@@ -152,3 +153,4 @@ body {
 .footer {
   border: 2px dashed red;
 }
+
