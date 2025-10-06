@@ -29,6 +29,7 @@ body {
   position: absolute;
   top: 0; left: 0; right: 0; height: 6px;
   background: linear-gradient(90deg, #742F30, #4766A9);
+  z-index: 500;
 }
 .header__title {
   font-size: 2em;
@@ -148,6 +149,7 @@ body {
   letter-spacing: 0.5px;
   margin: 0;
 }
+
 
 
 
