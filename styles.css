@@ -20,6 +20,7 @@ body {
   padding: 20px;
   text-align: center;
   position: relative;
+  position: sticky;
 }
 .header::before {
   content: "";
@@ -146,3 +147,4 @@ body {
   letter-spacing: 0.5px;
   margin: 0;
 }
+
